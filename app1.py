@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from tool1 import extract_keywords
-import os
+
 app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
@@ -15,6 +15,4 @@ def home():
 
 
 if __name__ == "__main__":
-    port=int(os.environ.get("PORT",10000))
     app.run(debug=True)
-
