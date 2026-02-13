@@ -1,107 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>AI Keyword Finder</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            width: 70%;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-
-        h1 {
-            font-size: 40px;
-            font-weight: bold;
-            background: linear-gradient(90deg, #ff416c, #ff4b2b, #1fd1f9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-        }
-
-        textarea {
-            width: 80%;
-            height: 150px;
-            padding: 15px;
-            border-radius: 10px;
-            border: 2px solid #ddd;
-            font-size: 14px;
-            resize: none;
-            outline: none;
-        }
-
-        textarea:focus {
-            border-color: #667eea;
-        }
-
-        button {
-            margin-top: 20px;
-            padding: 12px 30px;
-            font-size: 16px;
-            background: linear-gradient(90deg, #36d1dc, #5b86e5);
-            color: white;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-
-        button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.3);
-        }
-
-        .results {
-            margin-top: 30px;
-        }
-
-        .keyword {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
-            padding: 8px 15px;
-            margin: 6px;
-            border-radius: 25px;
-            font-size: 14px;
-            color: #333;
-            font-weight: 500;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+    <div class="container">
+        <h1 class="title">🤖 AI Keyword Finder</h1>
 
-    <h1>✨ AI Keyword Finder ✨</h1>
+        <textarea id="textInput" placeholder="Paste your text here..."></textarea>
 
-    <form method="POST">
-        <textarea name="text" placeholder="Paste your text here..."></textarea>
-        <br>
-        <button type="submit">🚀 Extract Keywords</button>
-    </form>
+        <button onclick="findKeywords()">Extract Keywords</button>
 
-    {% if keywords %}
-        <div class="results">
-            <h2>Top Keywords:</h2>
-            {% for k in keywords %}
-                <span class="keyword">{{ k }}</span>
-            {% endfor %}
-        </div>
-    {% endif %}
+        <div id="result"></div>
+    </div>
 
-</div>
-
+    <script src="script.js"></script>
 </body>
 </html>
